@@ -10,11 +10,12 @@ class App extends React.Component {
 
   state = {
     lists: this.props.listData|| [],
-  }
+  };
 
   static propTypes = {
     lists: PropTypes.array,
-  }
+    listData: PropTypes.array,
+  };
 
   addList(title){
     this.setState(state => (
@@ -26,8 +27,8 @@ class App extends React.Component {
             title,
             description: settings.defaultNewListDescription,
             image: listData.imageNewList,
-          }
-        ]
+          },
+        ],
       }
     ));
   }
@@ -47,7 +48,7 @@ class App extends React.Component {
           <Creator text={settings.listCreatorText} action={title => this.addList(title)} />
         </div>
       </main>
-    )
+    );
   }
 }
 
