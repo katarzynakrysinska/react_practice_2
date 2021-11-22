@@ -9,6 +9,7 @@ export const settings = {
   },
   defaultListDescription: '<p>I can do all the things!!!</p>',
   defaultColumnIcon: 'list-alt',
+  defaultNewListDescription: '<p>I am the new one in town</p>',
 };
 
 export const pageContents = {
@@ -20,6 +21,7 @@ export const listData = {
   title: 'Things to do <sup>soon!</sup>',
   description: 'Interesting things I want to check out!',
   image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+  imageNewList: 'https://images.pexels.com/photos/7577876/pexels-photo-7577876.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
   columns: [
     {
       key: 0,
