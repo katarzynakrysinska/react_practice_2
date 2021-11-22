@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './App.scss';
 import { pageContents, listData } from '../../data/dataStore';
-
 import List from '../List/List';
 
 class App extends React.Component {
