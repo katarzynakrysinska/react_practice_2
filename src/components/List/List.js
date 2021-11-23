@@ -7,41 +7,33 @@ import Hero from '../Hero/Hero';
 import Column from '../Column/ColumnContainer';
 import Creator from '../Creator/Creator';
 
-class List extends React.Component {
-  
-  static propTypes = {
-    title: PropTypes.node,
-    image: PropTypes.string,
-    description: PropTypes.node,
-    columns: PropTypes.array,
-    addColumn: PropTypes.func,
-  };
+const List = props => (
+  <section className={styles.component}>
+    <Hero titleText={props.title} image={props.image}/>
+    <div className={styles.description}>
+      {ReactHtmlParser(props.description)}
+    </div>
+    <div className={styles.columns}>
+      {props.columns.map(columnData => (
+        <Column key={columnData.id} {...columnData} />
+      ))}
+    </div>
+    <div className={styles.creator}>
+      <Creator text={settings.columnCreatorText} action={props.addColumn} />
+    </div>
+  </section>
+);
 
-  static defaultProps = {
-    description: settings.defaultListDescription,
-  };
+List.propTypes = {
+  title: PropTypes.node,
+  image: PropTypes.string,
+  description: PropTypes.node,
+  columns: PropTypes.array,
+  addColumn: PropTypes.func,
+};
 
-  render() {
-
-    const {title, image, description, columns, addColumn} = this.props;
-
-    return (
-      <section className={styles.component}>
-        <Hero titleText={title} image={image}/>
-        <div className={styles.description}>
-          {ReactHtmlParser(description)}
-        </div>
-        <div className={styles.columns}>
-          {columns.map(columnData => (
-            <Column key={columnData.id} {...columnData} />
-          ))}
-        </div>
-        <div className={styles.creator}>
-          <Creator text={settings.columnCreatorText} action={addColumn} />
-        </div>
-      </section>
-    );
-  }
-}
+List.defaultProps = {
+  description: settings.defaultListDescription,
+};
 
 export default List;
