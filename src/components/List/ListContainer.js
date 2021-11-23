@@ -13,6 +13,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch, props) => ({
   addColumn: title => dispatch(createActionAddColumn({
+    // to jest payload przekazany do columnsRedux
     listId: props.id,
     title,
   })),
