@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.scss';
-import { pageContents, listData } from '../../data/dataStore';
-import List from '../List/List';
+import { listData } from '../../data/dataStore';
+import List from '../List/ListContainer';
 import Creator from '../Creator/Creator';
 import { settings } from '../../data/dataStore';
 import PropTypes from 'prop-types';
@@ -15,6 +15,8 @@ class App extends React.Component {
   static propTypes = {
     lists: PropTypes.array,
     listData: PropTypes.array,
+    title: PropTypes.node,
+    subtitle: PropTypes.node,
   };
 
   addList(title){
@@ -34,11 +36,14 @@ class App extends React.Component {
   }
   
   render() {
+    const {title, subtitle, lists} = this.props;
     return (
       <main className={styles.component}>
-        <h1 className={styles.title}>{pageContents.title}</h1>
-        <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
-        <List {...listData} />
+        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.subtitle}>{subtitle}</h2>
+        {lists.map(listData => (
+          <List key={listData.id} {...listData} />
+        ))}
         <div>
           {this.state.lists.map(({key, ...listProps }) =>(
             <List key={key} {...listProps} />
