@@ -1,4 +1,5 @@
 import React from 'react';
+import {DragDropContext} from 'react-beautiful-dnd';
 import styles from './App.scss';
 import { listData } from '../../data/dataStore';
 import List from '../List/ListContainer';
@@ -38,14 +39,21 @@ class App extends React.Component {
   
   render() {
     const {title, subtitle, lists} = this.props;
+
+    const moveCardHandler = result => {
+      console.log(result);
+    };
+
     return (
       <main className={styles.component}>
         <h1 className={styles.title}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>
         <Search />
-        {lists.map(listData => (
-          <List key={listData.id} {...listData} />
-        ))}
+        <DragDropContext onDragEnd={moveCardHandler}>
+          {lists.map(listData => (
+            <List key={listData.id} {...listData} />
+          ))}
+        </DragDropContext>
         <div>
           {this.state.lists.map(({key, ...listProps }) =>(
             <List key={key} {...listProps} />
