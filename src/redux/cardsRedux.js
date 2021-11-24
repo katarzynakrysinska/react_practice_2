@@ -26,9 +26,14 @@ export default function reducer(statePart = [], action = {}) {
       const {id, src, dest} = action.payload;
       const targetCard = statePart.filter(card => card.id == id)[0];
       const targetColumnCards = statePart.filter(card => card.columnId == dest.columnId).sort((a, b) => a.index - b.index);
-      console.log(targetColumnCards.map(card => `${card.index}, title: ${card.title}`));
       
-      return statePart;
+      if(dest.columnId == src.columnId){
+        targetColumnCards.splice(src.index, 1);
+        targetColumnCards.splice(dest.index, 0, targetCard);
+        console.log(targetColumnCards.map(card => `${card.index}, title: ${card.title}`));
+      } else {
+        return statePart;
+      }
      
     }
     default:
