@@ -35,10 +35,12 @@ export const listData = {
         {
           key: 0,
           title: 'This Is Going to Hurt',
+          index: 0,
         },
         {
           key: 1,
           title: 'Interpreter of Maladies',
+          index: 1,
         },
       ],
     },
@@ -50,10 +52,12 @@ export const listData = {
         {
           key: 0,
           title: 'Harry Potter',
+          index: 0,
         },
         {
           key: 1,
           title: 'Star Wars',
+          index: 1,
         },
       ],
     },
@@ -65,10 +69,12 @@ export const listData = {
         {
           key: 0,
           title: 'The Witcher',
+          index: 0,
         },
         {
           key: 1,
           title: 'Skyrim',
+          index: 1,
         },
       ],
     },

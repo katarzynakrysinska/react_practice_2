@@ -11,9 +11,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  moveCard: payload => dispatch(createAction_moveCard({
+  moveCard: payload => dispatch(createAction_moveCard(
     payload,
-  })),
+  )),
 });
 
 //połączenie kompenentu App z magazynem
