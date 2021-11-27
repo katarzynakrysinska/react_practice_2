@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import { createAction_moveCard } from '../../redux/cardsRedux';
-import App from './App';
+import Home from './Home';
 
 //powiązanie propsów ze stanem aplikacji
 const mapStateToProps = state => ({
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 //połączenie kompenentu App z magazynem
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
